@@ -1,0 +1,63 @@
+
+{% extends 'accounts/base1.html' %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock  %} 
+
+{% block title %}
+ REGISTER PAGE
+{% endblock  %}
+
+
+
+{% block body %}
+<form method="POST" action="">
+   {% csrf_token %}
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    
+   
+    <label for="username"><b>Username</b></label>
+    {{form.username}}
+
+    <label for="email"><b>Email</b></label>
+    {{form.email}}
+
+    <label for="psw"><b>Password</b></label>
+    {{form.password1}}
+
+    <label for="psw-repeat"><b>Confirm Password</b></label>
+    {{form.password2}}
+    <hr>
+
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit" class="registerbtn" style="color:#AC3B61">Register</button>
+  </div>
+   
+   {{forms.errors}}
+   
+  {% comment %} <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div> {% endcomment %}
+</form>
+
+{% comment %} <form method="POST" action="">
+ {% csrf_token %}
+  {{form.username.label}}
+  {{form.username}}
+
+  {{form.email.label}}
+  {{form.email}}
+
+  {{form.password1.label}}
+  {{form.password1}}
+
+  {{form.password2.label}}
+  {{form.password2}}
+
+ <input type="submit" name="SIGN UP">
+</form>  {% endcomment %}
+{% endblock  %}

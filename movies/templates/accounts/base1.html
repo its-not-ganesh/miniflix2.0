@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css_files %}{% endblock  %}
+    <style>
+    
+    </style>
+    {% block bt %}{% endblock  %}
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"> {% endcomment %}
+
+    <title>{% block title %}{% endblock  %}</title>
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getToken(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+   }
+ const csrftoken = getToken('csrftoken');
+    </script>
+</head>
+<style>
+    
+a
+{
+  color: #EDC7B7;
+  font-weight: 1000;
+  font-family: 'Roboto', sans-serif;
+  text-decoration:none;
+}
+h3
+{
+    color: #EDC7B7;
+}
+a:hover
+{
+    color: hsl(19, 100%, 89%);
+    font-size: larger;
+}
+.slogan > h2
+{
+    color: #AC3B61;
+    text-shadow : 3px 3px 5px rgba(0,0,0,0.2)
+}
+
+
+
+
+
+</style>
+<body style="background-color: rgb(0, 0, 0);">
+
+    
+        
+        {% block user_status %}{% endblock  %}
+        {% block user_name %}{% endblock  %}
+    </nav>
+    <br>
+    {% block body %}{% endblock  %}
+    {% block script %}{% endblock  %}
+</body>
+
+
+</html>

@@ -1,0 +1,47 @@
+{% extends 'accounts/base1.html' %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock  %} 
+<body>
+
+</body>
+{% block title %}
+ LOGIN PAGE
+{% endblock  %}
+
+{% block body %}
+<form method="POST">
+   {% csrf_token %}
+  <div class="container">
+    <h1>Login</h1>
+    <hr>
+    
+   
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Email" name="username" id="username" required>
+    
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+
+    <hr>
+
+    <button type="submit" class="registerbtn" style="color:#ac3B61">Login</button>
+    <p>Not Registered Yet ? 
+    <span color="#AC3B61">
+         <a href="{% url 'register' %}">Click Here to Register</a>
+</span>
+    </p>
+    <h5></h5>
+  </div>
+
+   {% for message  in messages %}
+     <p>{{message}}</p>
+   {% endfor %}
+  {% comment %} <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div> {% endcomment %}
+</form>
+{% endblock  %}
